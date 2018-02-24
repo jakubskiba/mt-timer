@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="view" class="com.codecool.View" />
+
+    <bean id="timeContainer" class="com.codecool.TimerContainer">
+        <constructor-arg>
+            <map key-type="java.lang.String" value-type="com.codecool.Timer">
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="controller" class="com.codecool.Controller">
+        <constructor-arg ref="timeContainer" />
+        <constructor-arg ref="view" />
+    </bean>
+</beans>
